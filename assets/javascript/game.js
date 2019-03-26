@@ -1,11 +1,21 @@
 $(document).ready(function(){
 
     var counter = 0;
-
-    var targetNumber = 60;
-    
+    var wins = 0;
+    var losses = 0;
+    var targetNumber = [];
     var numberOptions = [10, 11, 15, 1];
     var increment = numberOptions[Math.round(Math.random())];
+
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+  
+    var guessNumber = getRandomInt(19, 120);
+  
+    targetNumber.push(guessNumber);
 
     $("#number-to-guess").text(targetNumber);
 
@@ -32,13 +42,15 @@ $(".crystal-image").on("click", function() {
     alert("New score: " + counter);
 
     if (counter === targetNumber) {
+      wins += 1;
       alert("You win!")
     }else if(counter >= targetNumber) {
+      losses += 1;
       alert("You lose!")
-    }
+    } $("#number-of-wins").text(wins);
+    $("#number-of-loss").text(losses);
 
   });
-
 
 
 });
