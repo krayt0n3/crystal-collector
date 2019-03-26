@@ -1,0 +1,30 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.navbar-brand {
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+text-align: center;
+}
+
+
+
+.crystal-image {
+    width: 300px;
+    height: 300px;
+  }
+
+  .container {
+    margin-top: 3%;
+  }
