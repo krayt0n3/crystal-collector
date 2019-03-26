@@ -4,8 +4,7 @@ $(document).ready(function(){
     var wins = 0;
     var losses = 0;
     var targetNumber = [];
-    var numberOptions = [10, 11, 15, 1];
-    var increment = numberOptions[Math.round(Math.random())];
+    var numberOptions;
 
     function getRandomInt(min, max) {
       min = Math.ceil(min);
@@ -14,8 +13,26 @@ $(document).ready(function(){
     }
   
     var guessNumber = getRandomInt(19, 120);
-  
     targetNumber.push(guessNumber);
+
+    function randomNumberGenerator (low, high) {
+
+      var a = [];
+      
+      a.push(Math.floor(Math.random() * high) + low);
+      
+      a.push(Math.floor(Math.random() * high) + low);
+      
+      a.push(Math.floor(Math.random() * high) + low);
+
+      a.push(Math.floor(Math.random() * high) + low);
+      
+      return a;
+      
+      }
+
+      numberOptions = randomNumberGenerator(1, 12);
+
 
     $("#number-to-guess").text(targetNumber);
 
