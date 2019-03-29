@@ -3,8 +3,9 @@ $(document).ready(function(){
     var counter = 0;
     var wins = 0;
     var losses = 0;
-    var targetNumber = [];
+    var targetNumber;
     var numberOptions;
+  
 
     function getRandomInt(min, max) {
       min = Math.ceil(min);
@@ -13,7 +14,7 @@ $(document).ready(function(){
     }
   
     var guessNumber = getRandomInt(19, 120);
-    targetNumber.push(guessNumber);
+    targetNumber = guessNumber;
 
     function randomNumberGenerator (low, high) {
 
@@ -36,6 +37,7 @@ $(document).ready(function(){
 
     $("#number-to-guess").text(targetNumber);
 
+    
     for (var i =0; i < numberOptions.length; i++) {
 
       var imageCrystal = $("<img>");
@@ -49,7 +51,9 @@ $(document).ready(function(){
       $("#crystals").append(imageCrystal);
     }
 
-$(".crystal-image").on("click", function() {
+function initiate() {
+
+$(".crystal-image").on("click", function start() {
 
   var crystalValue = ($(this).attr("data-crystal-value"));
   crystalValue = parseInt(crystalValue);
@@ -60,14 +64,33 @@ $(".crystal-image").on("click", function() {
 
     if (counter === targetNumber) {
       wins += 1;
-      alert("You win!")
-    }else if(counter >= targetNumber) {
+      alert("You win!");
+      console.log("you win");
+      reset();
+    }else if(counter > targetNumber) {
       losses += 1;
-      alert("You lose!")
-    } $("#number-of-wins").text(wins);
+      alert("You lose!");
+      console.log("you lose");
+      reset();
+    }else{
+      console.log("continue");
+    }; 
+    
+    $("#number-of-wins").text(wins);
     $("#number-of-loss").text(losses);
+  })};
 
-  });
+function reset() {
+  counter = 0;
+  guessNumber = [];
+  numberOptions = [];
+  targetNumber = [];
+  guessNumber = getRandomInt(19, 120);
+  targetNumber.push(guessNumber);
+  numberOptions = randomNumberGenerator(1, 12);
+  $("#number-to-guess").text(targetNumber);
+}
 
+initiate();
 
 });
