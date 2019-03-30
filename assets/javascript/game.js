@@ -44,7 +44,7 @@ $(document).ready(function(){
 
       imageCrystal.addClass("crystal-image");
 
-      imageCrystal.attr("src", "https://github.com/krayt0n3/unit-4-game/blob/initial-site/assets/images/crystal.jpg");
+      imageCrystal.attr("src", "https://raw.githubusercontent.com/krayt0n3/crystal-collector/initial-site/assets/images/crystal.jpg");
 
       imageCrystal.attr("data-crystal-value", numberOptions[i]);
 
